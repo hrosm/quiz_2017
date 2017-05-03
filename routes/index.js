@@ -7,8 +7,8 @@ router.get('/', function(req, res, next) {
 });
 
 // Pagina de creditos
-router.get('/hector', function(req, res, next) {
-    res.render('hector');
+router.get('/author', function(req, res, next) {
+    res.render('author');
 });
 
 // Pagina de help
