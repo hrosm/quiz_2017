@@ -7,8 +7,13 @@ router.get('/', function(req, res, next) {
 });
 
 // Pagina de creditos
-router.get('/author', function(req, res, next) {
-    res.render('author');
+router.get('/hector', function(req, res, next) {
+    res.render('hector');
+});
+
+// Pagina de help
+router.get('/help', function(req, res, next) {
+    res.render('help');
 });
 
 module.exports = router;
