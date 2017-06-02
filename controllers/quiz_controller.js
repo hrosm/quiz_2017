@@ -194,7 +194,7 @@ exports.randomplay = function(req, res, next) {
     var array = models.Quiz.findAll();
    // var aleatorio = Math.random()*array.Math.length();
     //var newId = models.Quiz.findById(aleatorio);
-models.Quiz.findById(1)
+models.Quiz.findById(2)
 .then(function (quiz){
 
 
@@ -211,7 +211,7 @@ exports.randomcheck = function(req, res, next){
 
 var answer = req.query.answer || "";
 
-    res.render('quizzes/result', {
+    res.render('quizzes/random_result', {
         score: 0,
         answer: answer
 
