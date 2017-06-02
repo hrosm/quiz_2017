@@ -187,3 +187,17 @@ exports.check = function (req, res, next) {
         answer: answer
     });
 };
+
+// GET /quizzes/randomplay
+exports.randomplay = function(req, res, next) {
+
+    var array = models.Quiz.findAll();
+    var aleatorio = Math.floor((Math.random()*array.length)+1);
+    var newId = models.Quiz.findById(aleatorio);
+    
+    res.render('quizzes/random_play', {
+        score: 0,
+        quiz: newId
+    });
+
+};
