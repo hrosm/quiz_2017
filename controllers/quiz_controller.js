@@ -194,10 +194,23 @@ exports.randomplay = function(req, res, next) {
     var array = models.Quiz.findAll();
     var aleatorio = Math.floor((Math.random()*array.length)+1);
     var newId = models.Quiz.findById(aleatorio);
-    
+
     res.render('quizzes/random_play', {
         score: 0,
         quiz: newId
     });
 
+};
+
+// GET /quizzes/randomcheck/:quizId?answer=respuesta
+
+exports.randomcheck = function(req, res, next){
+
+var answer = req.query.answer || "";
+
+    res.render('quizzes/random_result', {
+        score: 0,
+        answer: answer
+
+    });
 };
