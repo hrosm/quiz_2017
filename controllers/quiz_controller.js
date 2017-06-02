@@ -192,7 +192,7 @@ exports.check = function (req, res, next) {
 exports.randomplay = function(req, res, next) {
 
     var array = models.Quiz.findAll();
-    var aleatorio = Math.random()*array.length;
+    var aleatorio = Math.random()*array.length();
     //var newId = models.Quiz.findById(aleatorio);
 models.Quiz.findById(aleatorio)
 .then(function (quiz){
