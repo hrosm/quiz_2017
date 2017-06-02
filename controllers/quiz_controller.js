@@ -211,7 +211,7 @@ exports.randomcheck = function(req, res, next){
 
 var answer = req.query.answer || "";
 
-    res.render('quizzes/random_result', {
+    res.render('quizzes/result', {
         score: 0,
         answer: answer
 
