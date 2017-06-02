@@ -191,15 +191,18 @@ exports.check = function (req, res, next) {
 // GET /quizzes/randomplay
 exports.randomplay = function(req, res, next) {
 
-    var array = models.Quiz.findAll();
-    var aleatorio = Math.floor((Math.random()*array.length)+1);
-    var newId = models.Quiz.findById(aleatorio);
+  //  var array = models.Quiz.findAll();
+    //var aleatorio = Math.floor((Math.random()*array.length)+1);
+    //var newId = models.Quiz.findById(aleatorio);
+models.Quiz.findById(1)
+.then(function (quiz){
+
 
     res.render('quizzes/random_play', {
         score: 0,
-        quiz: newId
+        quiz: quiz
     });
-
+});
 };
 
 // GET /quizzes/randomcheck/:quizId?answer=respuesta
