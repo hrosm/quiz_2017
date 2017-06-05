@@ -190,7 +190,7 @@ exports.check = function (req, res, next) {
 
 // GET /quizzes/randomplay
 exports.randomplay = function(req, res, next) {
-var i = quizs.length;
+var i = models.Quiz.count();
 models.Quiz.findAll()
 .then(function (quizs){
     //var aleatorio = Math.floor(Math.random()*quizs.length);
