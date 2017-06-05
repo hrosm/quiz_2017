@@ -134,5 +134,8 @@ router.delete('/quizzes/:quizId(\\d+)/tips/:tipId(\\d+)',
     sessionController.loginRequired,
     tipController.destroy);
 
+router.get('/quizzes/randomplay',		   quizController.randomplay);
+router.get('/quizzes/randomcheck/:quizId?',  quizController.randomcheck);
+
 
 module.exports = router;
