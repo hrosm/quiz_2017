@@ -194,8 +194,9 @@ exports.randomplay = function(req, res, next) {
 models.Quiz.findAll()
 .then(function (quizs){
     //var aleatorio = Math.floor(Math.random()*quizs.length);
+    var i = quizs.length;
     var score = req.query.score++ || 0;
-    for (var i = 0; i <= quizs.length; i++) {
+    while (i>0) {
         var aleatorio = Math.floor(Math.random()*quizs.length);
         var quiz = quizs[aleatorio];
     
@@ -205,6 +206,7 @@ models.Quiz.findAll()
         score: score,
         quiz: quiz
     });
+    i--;
     };
 });
 };
