@@ -131,7 +131,7 @@ router.put('/quizzes/:quizId(\\d+)/tips/:tipId(\\d+)/accept',
     quizController.adminOrAuthorRequired,
     tipController.accept);
 router.delete('/quizzes/:quizId(\\d+)/tips/:tipId(\\d+)',
-    sessionController.loginRequired,
+    sessionController.adminOrMyselfRequired,
     tipController.destroy);
 
 router.get('/quizzes/randomplay',		   quizController.randomplay);
