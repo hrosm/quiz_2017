@@ -198,14 +198,13 @@ exports.randomplay = function(req, res, next) {
     
         var aleatorio = Math.floor(Math.random()*quizs.length);
         var quiz = quizs[aleatorio];
-        delete quizs[aleatorio];
-    
     
         res.render('quizzes/random_play', {
             score: score,
             quiz: quiz
         });    
     });
+    delete quizs[aleatorio];
 };
 
 // GET /quizzes/randomcheck/:quizId?answer=respuesta
