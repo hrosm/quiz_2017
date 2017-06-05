@@ -190,30 +190,23 @@ exports.check = function (req, res, next) {
 
 // GET /quizzes/randomplay
 exports.randomplay = function(req, res, next) {
-var i = models.Quiz.count();
-models.Quiz.findAll()
-.then(function (quizs){
-    //var aleatorio = Math.floor(Math.random()*quizs.length);
+
+    models.Quiz.findAll()
+    .then(function (quizs){
     
-    var score = req.query.score++ || 0;
+        var score = req.query.score++ || 0;
     
         var aleatorio = Math.floor(Math.random()*quizs.length);
         var quiz = quizs[aleatorio];
     
-    //var quiz = quizs[aleatorio];
     
-    res.render('quizzes/random_play', {
-        score: score,
-        quiz: quiz
+        res.render('quizzes/random_play', {
+            score: score,
+            quiz: quiz
+        });
+    
+        
     });
-    i--;
-    score++;
-        if (i===0){
-            res.render('quizzes/random_nomore', {
-                score: score
-            });
-        };
-});
 };
 
 // GET /quizzes/randomcheck/:quizId?answer=respuesta
