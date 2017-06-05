@@ -191,9 +191,6 @@ exports.check = function (req, res, next) {
 // GET /quizzes/randomplay
 exports.randomplay = function(req, res, next) {
 
-    
-   // var aleatorio = Math.random()*array.Math.length();
-    //var newId = models.Quiz.findById(aleatorio);
 models.Quiz.findAll()
 .then(function (quizs){
     var aleatorio = Math.floor(Math.random()*quizs.length);
@@ -211,7 +208,7 @@ models.Quiz.findAll()
 exports.randomcheck = function(req, res, next){
 
 req.query.answer || ""
-.then(function(){
+.then(function(answer){
 
     res.render('quizzes/random_result', {
         score: 0,
