@@ -204,7 +204,7 @@ exports.randomplay = function(req, res, next) {
             quiz: quiz
         });    
     });
-    delete quizs[aleatorio];
+    //delete quizs[aleatorio];
 };
 
 // GET /quizzes/randomcheck/:quizId?answer=respuesta
