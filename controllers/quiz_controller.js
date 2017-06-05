@@ -202,6 +202,7 @@ models.Quiz.findById(2)
         score: 0,
         quiz: quiz
     });
+    next();
 });
 };
 
