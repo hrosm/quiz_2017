@@ -190,11 +190,11 @@ exports.check = function (req, res, next) {
 
 // GET /quizzes/randomplay
 exports.randomplay = function(req, res, next) {
-
+var i = quizs.length;
 models.Quiz.findAll()
 .then(function (quizs){
     //var aleatorio = Math.floor(Math.random()*quizs.length);
-    var i = quizs.length;
+    
     var score = req.query.score++ || 0;
     
         var aleatorio = Math.floor(Math.random()*quizs.length);
@@ -206,7 +206,13 @@ models.Quiz.findAll()
         score: score,
         quiz: quiz
     });
-
+    i--;
+    score++;
+        if (i===0){
+            res.render('quizzes/random_nomore', {
+                score: score
+            });
+        };
 });
 };
 
