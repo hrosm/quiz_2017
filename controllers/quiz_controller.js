@@ -194,10 +194,10 @@ exports.randomplay = function(req, res, next) {
     var array = models.Quiz.findAll();
    // var aleatorio = Math.random()*array.Math.length();
     //var newId = models.Quiz.findById(aleatorio);
-models.Quiz.findById(2)
-.then(function (quiz){
+models.Quiz.findAll()
+.then(function (quizs){
 
-
+    var quiz = quizs[1];
     res.render('quizzes/random_play', {
         score: 0,
         quiz: quiz
