@@ -210,11 +210,13 @@ models.Quiz.findAll()
 
 exports.randomcheck = function(req, res, next){
 
-var answer = req.query.answer || "";
+req.query.answer || ""
+.then(function(){
 
     res.render('quizzes/random_result', {
         score: 0,
         answer: answer
 
     });
+});
 };
