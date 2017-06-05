@@ -213,7 +213,7 @@ exports.randomcheck = function(req, res, next){
 req.query.answer || ""
 .then(function(){
 
-    res.render('random_result', {
+    res.render('quizzes/random_result', {
         score: 0,
         answer: answer
 
