@@ -202,7 +202,7 @@ models.Quiz.findAll()
         score: 0,
         quiz: quiz
     });
-    next();
+    
 });
 };
 
