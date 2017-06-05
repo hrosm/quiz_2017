@@ -196,7 +196,7 @@ models.Quiz.findAll()
     //var aleatorio = Math.floor(Math.random()*quizs.length);
     var i = quizs.length;
     var score = req.query.score++ || 0;
-    while (i>0) {
+    
         var aleatorio = Math.floor(Math.random()*quizs.length);
         var quiz = quizs[aleatorio];
     
@@ -206,8 +206,7 @@ models.Quiz.findAll()
         score: score,
         quiz: quiz
     });
-    i--;
-    };
+
 });
 };
 
