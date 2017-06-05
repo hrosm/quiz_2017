@@ -194,7 +194,7 @@ exports.randomplay = function(req, res, next) {
     models.Quiz.findAll()
     .then(function (quizs){
     
-        var score = req.query.score++ || 0;
+        var score = ++req.query.score || 0;
     
         var aleatorio = Math.floor(Math.random()*quizs.length);
         var quiz = quizs[aleatorio];
@@ -215,7 +215,7 @@ exports.randomcheck = function(req, res, next){
     var answer = req.query.answer || "";
 
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
-    var score = req.query.score++ || 0;
+    var score = ++req.query.score++ || 0;
     res.render('quizzes/random_result', {
         score: score,
         answer: answer, 
