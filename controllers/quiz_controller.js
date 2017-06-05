@@ -215,9 +215,9 @@ exports.randomcheck = function(req, res, next){
     var answer = req.query.answer || "";
 
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
-    //var score = req.session.score++ || 0;
+    var score = req.session.score++;
     res.render('quizzes/random_result', {
-        score: (req.session.score++ || 0),
+        score: score,
         answer: answer, 
         result: result
 
