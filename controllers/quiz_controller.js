@@ -190,13 +190,14 @@ exports.check = function (req, res, next) {
 
 // GET /quizzes/randomplay
 exports.randomplay = function(req, res, next) {
-
+var score = 0;
 models.Quiz.findAll()
 .then(function (quizs){
     var aleatorio = Math.floor(Math.random()*quizs.length);
     var quiz = quizs[aleatorio];
+    
     res.render('quizzes/random_play', {
-        score: 0,
+        score: score,
         quiz: quiz
     });
     
@@ -211,8 +212,9 @@ exports.randomcheck = function(req, res, next){
     var answer = req.query.answer || "";
 
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
+    score = score++;
     res.render('quizzes/random_result', {
-        score: 0,
+        score: score,
         answer: answer, 
         result: result
 
