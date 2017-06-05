@@ -207,8 +207,9 @@ models.Quiz.findAll()
 
 exports.randomcheck = function(req, res, next){
 
-req.query.answer || ""
-.then(function(answer){
+models.Quiz.findById(quizId)   // CAMBIAR ALGO AQUI
+.then(function (quiz){
+    var answer = quiz.answer;
 
     res.render('quizzes/random_result', {
         score: 0,
