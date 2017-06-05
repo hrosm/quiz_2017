@@ -207,14 +207,15 @@ models.Quiz.findAll()
 
 exports.randomcheck = function(req, res, next){
 
-models.Quiz.findById(quizId)   // CAMBIAR ALGO AQUI
-.then(function (quiz){
-    var answer = quiz.answer;
 
+    var answer = req.query.answer || "";
+
+    var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
     res.render('quizzes/random_result', {
         score: 0,
-        answer: answer
+        answer: answer, 
+        result: result
 
     });
-});
+
 };
