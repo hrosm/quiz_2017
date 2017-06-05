@@ -197,7 +197,7 @@ exports.randomplay = function(req, res, next) {
 models.Quiz.findAll()
 .then(function (quizs){
 
-    var quiz = quizs[1];
+    var quiz = quizs[0];
     res.render('quizzes/random_play', {
         score: 0,
         quiz: quiz
