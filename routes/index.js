@@ -51,9 +51,10 @@ router.get('/help', function(req, res, next) {
 
 
 // Autoload de rutas que usen :quizId
-router.param('quizId', quizController.load);
+router.param('quizId', quizController.load, tipController.load);
 router.param('userId', userController.load);
-router.param('tipId',  tipController.load);
+router.param('tipId',  quizController.load, tipController.load);
+
 
 
 // Definición de rutas de sesion
@@ -131,7 +132,8 @@ router.put('/quizzes/:quizId(\\d+)/tips/:tipId(\\d+)/accept',
     quizController.adminOrAuthorRequired,
     tipController.accept);
 router.delete('/quizzes/:quizId(\\d+)/tips/:tipId(\\d+)',
-    sessionController.adminOrMyselfRequired,
+    sessionController.loginRequired,
+    quizController.adminOrAuthorRequired,
     tipController.destroy);
 
 router.get('/quizzes/randomplay',		   quizController.randomplay);
